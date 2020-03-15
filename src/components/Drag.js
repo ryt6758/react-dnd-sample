@@ -1,5 +1,5 @@
 export const postSource = {
-  beginDrag(props, monitor, component) {
+  beginDrag(props) {
     return props
   }
 }

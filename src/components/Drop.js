@@ -1,10 +1,15 @@
+import { sort } from '../actions'
+
 export const postTarget = {
-  drop(props, monitor, component) {
+  drop(dropprops, monitor, component) {
     // @param props 親コンポーネントのProps
     // @param monitor ドロップ先のモニタリング情報
-    // @param component ドロップ先となるDrpコンポーネントのインスタンス
+    // @param component ドロップ先のインスタンス
     // monitor.getItem()で、beginDragでreturnした値を取得できる
-    return props
+    const dragId = monitor.getItem().id
+    const dropId = dropprops.id
+    dropprops.sort({ fromId: dragId, toId: dropId })
+    return dropprops
   }
 }
 
