@@ -1,0 +1,14 @@
+.todo {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.todo:nth-of-type(2) {
+  border: 1px solid #ccc;
+}
+.hovered {
+  box-shadow: 0 0 6px 6px #333;
+  color: #fff;
+  opacity: .2;
+}

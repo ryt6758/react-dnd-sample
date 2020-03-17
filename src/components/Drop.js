@@ -1,20 +1,22 @@
-import { sort } from '../actions'
 
 export const postTarget = {
-  drop(dropprops, monitor, component) {
-    // @param props 親コンポーネントのProps
-    // @param monitor ドロップ先のモニタリング情報
-    // @param component ドロップ先のインスタンス
-    // monitor.getItem()で、beginDragでreturnした値を取得できる
+  // drop(dropprops, monitor, component) {
+  //   const dragId = monitor.getItem().id
+  //   const dropId = dropprops.id
+  //   dropprops.sort({ fromId: dragId, toId: dropId })
+  //   return dropprops
+  // }
+  hover(dropprops, monitor) {
     const dragId = monitor.getItem().id
     const dropId = dropprops.id
-    dropprops.sort({ fromId: dragId, toId: dropId })
+    if (dragId !== dropId) dropprops.sort({ fromId: dragId, toId: dropId })
     return dropprops
   }
 }
 
 export const collect = (connect, monitor) => {
   return {
+    isOver: monitor.isOver(),
     connectDropTarget: connect.dropTarget()
   }
 }

@@ -15,11 +15,14 @@ class Input extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div style={{
+        margin: "10px 0 20px",
+        textAlign: "center"
+      }}>
         <input type='text' name='title' placeholder='Please write Title..'></input>
         <input type='text' name='body' placeholder='Please write Body..'></input>
         <button onClick={() => this.props.create(this.getInputText())}>done</button>
-      </React.Fragment>
+      </div>
     )
   }
 }
