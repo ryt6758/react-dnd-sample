@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import thunk from 'redux-thunk'
 import reducer from './reducers'
 import './index.css'
@@ -15,8 +16,10 @@ const enhancer = process.env.NODE_ENV === 'development' ?
 const store = createStore(reducer, enhancer);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Input />
-    <List />
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Input />
+      <List />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('root'));

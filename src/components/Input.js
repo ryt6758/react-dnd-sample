@@ -1,7 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { create } from '../actions'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
+
+const useStyles = makeStyles(theme => {
+  root: {
+    margin: theme.spacing(2)
+  }
+})
 class Input extends React.Component {
 
   getInputText() {
@@ -19,9 +28,14 @@ class Input extends React.Component {
         margin: "10px 0 20px",
         textAlign: "center"
       }}>
-        <input type='text' name='title' placeholder='Please write Title..'></input>
+        {/* <form noValidate autoComplete="off"> */}
+        <TextField type="text" name="title" hintText="Title" fullWidth="true" floatingLabelText="Title" />
+        <TextField type="text" name="body" hintText="Body" fullWidth="true" floatingLabelText="Body" />
+        {/* </form> */}
+        <RaisedButton label="Done" onClick={() => this.props.create(this.getInputText())}></RaisedButton>
+        {/* <input type='text' name='title' placeholder='Please write Title..'></input>
         <input type='text' name='body' placeholder='Please write Body..'></input>
-        <button onClick={() => this.props.create(this.getInputText())}>done</button>
+        <button onClick={() => this.props.create(this.getInputText())}>done</button> */}
       </div>
     )
   }

@@ -7,7 +7,6 @@ import Todo from './Todo'
 class List extends React.Component {
 
   render() {
-    console.log(this.props.todoList)
     const rendertodoList = this.props.todoList.map(todo => (
       <Todo id={todo.id} title={todo.title} body={todo.body} key={todo.id} />
     ))
